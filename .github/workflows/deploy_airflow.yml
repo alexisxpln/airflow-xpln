@@ -23,9 +23,8 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v1'
       
       - name: 'upload code'
-        run: |
-         'ls'
-         ' gcloud compute scp airflow-xpln airflow-xpln:airflow-xpln --project=senselab-dev --zone=europe-west3-c'
+        run:
+         'gcloud compute scp airflow-xpln airflow-xpln:airflow-xpln --project=senselab-dev --zone=europe-west3-c --recurse'
     
 
 
