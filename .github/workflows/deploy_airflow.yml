@@ -21,9 +21,6 @@ jobs:
 
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
-
-      - name: 'ssh into the vm'
-        run: 'gcloud compute ssh --zone "europe-west3-c" "airflow-xpln"  --project "senselab-dev"'
       
       - name: 'upload code'
         run: |
