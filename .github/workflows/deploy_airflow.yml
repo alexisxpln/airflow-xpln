@@ -22,12 +22,14 @@ jobs:
         uses: 'google-github-actions/auth@v1'
         with:
           credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+          service_account: 'senselab-dev-service@senselab-dev.iam.gserviceaccount.com'
 
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v1'
       
       - name: 'upload code'
         run: |
+         gcloud auth activate-service-account --key-file=
          sudo gcloud compute scp dags/ airflow-xpln:/home/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
     
 
