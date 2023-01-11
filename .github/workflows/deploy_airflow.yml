@@ -2,6 +2,7 @@ name: Deploy Airflow repository
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT }}
+  GOOGLE_CLOUD_CREDENTIALS: ${{ secrets.GCP_SERVICE_ACCOUNT }}
   GCE_INSTANCE: airflow-xpln  # TODO: update to instance name
   GCE_INSTANCE_ZONE: europe-west-3   # TODO: update to instance zone
 
