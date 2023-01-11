@@ -26,7 +26,7 @@ jobs:
         run: 'gcloud compute ssh --zone "europe-west3-c" "airflow-xpln"  --project "senselab-dev"'
       
       - name: 'upload code'
-        run: ' gcloud compute scp ./airflow-xpln airflow-xpln:airflow-xpln --project=senselab-dev --zone=europe-west3-c'
+        run: ' gcloud compute scp . airflow-xpln:airflow-xpln --project=senselab-dev --zone=europe-west3-c'
     
 
 
