@@ -28,7 +28,7 @@ jobs:
       - name: 'upload code'
         run: |
          ls -la
-         gcloud compute scp airflow-xpln/dags airflow-xpln:airflow-xpln/dgs --project=senselab-dev --zone=europe-west3-c --recurse
+         gcloud compute scp dags/ airflow-xpln:airflow-xpln/dgs --project=senselab-dev --zone=europe-west3-c --recurse
     
 
 
