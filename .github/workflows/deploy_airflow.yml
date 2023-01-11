@@ -12,7 +12,6 @@ on:
 jobs:
   job_id:
     steps:
-    steps:
     - id: 'auth'
        name: 'Authenticate to Google Cloud'
        uses: 'google-github-actions/auth@v1'
