@@ -11,6 +11,7 @@ on:
     branches: [ main ]
 jobs:
   deploy-to-vm:
+    runs-on: ubuntu-latest
     steps:
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
