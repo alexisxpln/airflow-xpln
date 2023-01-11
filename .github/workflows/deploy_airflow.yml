@@ -10,22 +10,22 @@ on:
   push:
     branches: [ main ]
 jobs:
-  job_id:
+  deploy-to-vm:
     steps:
-    - id: 'auth'
-       name: 'Authenticate to Google Cloud'
-       uses: 'google-github-actions/auth@v1'
-       with:
-         credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v1'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
 
-    - name: 'ssh into the vm'
-      run: 'gcloud compute ssh --zone "europe-west3-c" "airflow-xpln"  --project "senselab-dev"'
-    
-    - name: 'get code'
-      run: 'git pull origin master'
+      - name: 'ssh into the vm'
+        run: 'gcloud compute ssh --zone "europe-west3-c" "airflow-xpln"  --project "senselab-dev"'
+      
+      - name: 'get code'
+        run: 'git pull origin master'
     
 
 
