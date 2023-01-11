@@ -29,7 +29,7 @@ jobs:
       
       - name: 'upload code'
         run: |
-         gcloud auth activate-service-account --key-file=
+         gcloud auth activate-service-account --key-file=${{ secrets.GCP_SERVICE_ACCOUNT }}
          sudo gcloud compute scp dags/ airflow-xpln:/home/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
     
 
