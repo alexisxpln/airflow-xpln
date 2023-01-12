@@ -29,7 +29,8 @@ jobs:
       
       - name: 'upload code'
         run: |
-         gcloud compute scp dags/ airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
+         gcloud config set account 187942338782-compute@developer.gserviceaccount.com
+         sudo gcloud compute scp dags/ airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
     
 
 
