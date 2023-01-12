@@ -28,7 +28,7 @@ jobs:
         
       - name: 'upload code'
         run: |
-          gcloud compute scp dags/ root@airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --ssh-key-file=SSH_KEY_FILE --zone=europe-west3-c --recurse
+          gcloud compute scp dags/ alexissair@airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
     
 
 
