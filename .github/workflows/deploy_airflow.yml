@@ -17,21 +17,20 @@ jobs:
       - name: 'checkout'
         uses: actions/checkout@v2
 
-      - id: 'auth'
-        name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v1'
-        with:
-          credentials_json: '${{ secrets.GCP_SERVICE_ACCOUNT }}'
-          service_account: 'senselab-dev-service@senselab-dev.iam.gserviceaccount.com'
+          # Alternative option - authentication via credentials json
+     - id: 'auth'
+       uses: 'google-github-actions/auth@v1'
+       with:
+         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-      - name: 'Set up Cloud SDK'
-        uses: 'google-github-actions/setup-gcloud@v1'
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v1'
       
-      - name: 'upload code'
-        run: |
-         gcloud config set account 187942338782-compute@developer.gserviceaccount.com
-         sudo gcloud compute scp dags/ airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
-    
+    - name: 'upload code'
+      run: |
+        gcloud config list
+        sudo gcloud compute scp dags/ airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
+  
 
 
 
