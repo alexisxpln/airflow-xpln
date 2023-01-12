@@ -17,20 +17,19 @@ jobs:
       - name: 'checkout'
         uses: actions/checkout@v2
 
-          # Alternative option - authentication via credentials json
-     - id: 'auth'
-       uses: 'google-github-actions/auth@v1'
-       with:
-         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v1'
-      
-    - name: 'upload code'
-      run: |
-        gcloud config set account default
-        sudo gcloud compute scp dags/ airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
-  
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        
+      - name: 'upload code'
+        run: |
+          gcloud config set account default
+          sudo gcloud compute scp dags/ airflow-xpln:/home/alexissair/airflow-xpln/ --project=senselab-dev --zone=europe-west3-c --recurse
+    
 
 
 
